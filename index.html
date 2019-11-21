@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    #boton1, #boton2, #boton3, #boton4 {
+      font-weigth: 600;
+      font-size: 20px;
+      color: #5e2129;
+      background-color: #ffffff;
+      border-radius: 6px;
+      border: 2px solid #6B0E53;
+    }
+  </style>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0,
 user-scalable=no;" />
 <script type="text/javascript" charset="utf-8"
 src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
-function onBodyLoad() {
-document.addEventListener("deviceready",onDeviceReady,
-false);
-}
-function alertDismissed() {
+
+function onDeviceReady() {
 navigator.notification.alert("Hola Fabiola");
 }
-function onConfirm(buttonIndex) {
-alert('Haz seleccionado ' + buttonIndex);
+  
+function onConfirm() {
 navigator.notification.confirm("Aceptar");
 }
+  
 function onPrompt() {
-navigator.notification.prompt("Escribe tu nombre", ['Ok'], 'Fabiola');
+navigator.notification.prompt('Fabiola');
 }
+  
 function onBeep() {
 navigator.notification.beep(5);
 }
@@ -29,5 +38,14 @@ navigator.notification.beep(5);
 <body onload="onBodyLoad()">
 <h1>Notificaciones</h1>
 <p>This is a sample PhoneGap application.</p>
+  
+  <input id="boton1" type="button" value="alert" onclick="onDeviceReady();" />
+
+  <input id="boton2" type="button" value="confirm" onclick="onConfirm();" />
+
+  <input id="boton3" type="button" value="prompt" onclick="onPrompt();" />
+
+  <input id="boton4" type="button" value="beep" onclick="onBeep();" />
+  
 </body>
 </html>
